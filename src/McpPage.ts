@@ -84,6 +84,7 @@ import {takeSnapshot} from './tools/snapshot.js';
 import type {ToolGroups} from './tools/thirdPartyDeveloper.js';
 const DEFAULT_TIMEOUT = 5_000;
 const NAVIGATION_TIMEOUT = 10_000;
+const PAGE_INIT_TIMEOUT = 1_000;
 import type {
   ContextPage,
   DevToolsData,
@@ -125,6 +126,7 @@ export class McpPage implements ContextPage {
   // Metadata
   isolatedContextName?: string;
   #devtoolsUniverse?: TargetUniverse;
+  #disposed = false;
 
   // Dialog
   #dialog?: Dialog;
@@ -177,10 +179,28 @@ export class McpPage implements ContextPage {
   }
 
   async init(): Promise<void> {
-    await Promise.allSettled([
+    const initialization = Promise.allSettled([
       this.#initDevToolsUniverseNoThrow(),
       this.#initFocusEmulationNoThrow(),
     ]);
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+    const timeout = new Promise<void>(resolve => {
+      timeoutId = setTimeout(() => {
+        logger?.(
+          'Failed to initialize page',
+          new Error(`Initialization timed out after ${PAGE_INIT_TIMEOUT} ms`),
+        );
+        resolve();
+      }, PAGE_INIT_TIMEOUT);
+    });
+
+    try {
+      await Promise.race([initialization, timeout]);
+    } finally {
+      if (timeoutId !== undefined) {
+        clearTimeout(timeoutId);
+      }
+    }
   }
 
   async #initFocusEmulationNoThrow(): Promise<void> {
@@ -196,10 +216,22 @@ export class McpPage implements ContextPage {
     }
     try {
       const session = await this.pptrPage.createCDPSession();
-      this.#devtoolsUniverse = await createTargetUniverse(session);
+      const devtoolsUniverse = await createTargetUniverse(session);
+      if (this.#disposed) {
+        this.#disposeDevToolsUniverse(devtoolsUniverse);
+        return;
+      }
+      this.#devtoolsUniverse = devtoolsUniverse;
     } catch (e) {
       logger?.('Failed to initialize DevTools universe', e);
     }
+  }
+
+  #disposeDevToolsUniverse(devtoolsUniverse: TargetUniverse): void {
+    devtoolsUniverse.universe.dispose();
+    void devtoolsUniverse.session.detach().catch(e => {
+      logger?.('Failed to detach DevTools session', e);
+    });
   }
 
   get devtoolsUniverse(): TargetUniverse | undefined {
@@ -431,15 +463,15 @@ export class McpPage implements ContextPage {
   }
 
   dispose(): void {
+    this.#disposed = true;
     this.pptrPage.off('dialog', this.#dialogHandler);
     this.networkCollector.dispose();
     this.consoleCollector.dispose();
     const devtoolsUniverse = this.#devtoolsUniverse;
     this.#devtoolsUniverse = undefined;
-    devtoolsUniverse?.universe.dispose();
-    void devtoolsUniverse?.session.detach().catch(e => {
-      logger?.('Failed to detach DevTools session', e);
-    });
+    if (devtoolsUniverse) {
+      this.#disposeDevToolsUniverse(devtoolsUniverse);
+    }
   }
 
   async executeThirdPartyDeveloperTool(

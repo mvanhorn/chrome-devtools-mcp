@@ -5,11 +5,19 @@
  */
 
 import assert from 'node:assert';
-import {describe, it} from 'node:test';
+import {afterEach, describe, it} from 'node:test';
 
-import {replaceHtmlElementsWithUids} from '../src/McpPage.js';
-import type {JSONSchema7Definition} from '../src/third_party/index.js';
-import {withMcpContext} from './utils.js';
+import {Locator} from 'puppeteer';
+import sinon from 'sinon';
+
+import {McpPage, replaceHtmlElementsWithUids} from '../src/McpPage.js';
+import type {
+  CDPSession,
+  JSONSchema7Definition,
+} from '../src/third_party/index.js';
+import {withBrowser, withMcpContext} from './utils.js';
+
+const PAGE_INIT_TIMEOUT = 1_000;
 
 describe('replaceHtmlElementsWithUids', () => {
   it('does nothing for boolean schemas', () => {
@@ -260,6 +268,10 @@ describe('replaceHtmlElementsWithUids', () => {
 });
 
 describe('McpPage', () => {
+  afterEach(() => {
+    sinon.restore();
+  });
+
   it('creates a handle on the page and disposes it as such', async () => {
     await withMcpContext(async (response, context) => {
       const page = context.getSelectedMcpPage().pptrPage;
@@ -272,6 +284,134 @@ describe('McpPage', () => {
 
       // @ts-expect-error Internal Puppeteer API
       assert.ok(handle.disposed);
+    });
+  });
+
+  it('cleans up optional initialization that settles after disposal', async () => {
+    await withBrowser(async (_browser, page) => {
+      const clock = sinon.useFakeTimers();
+      const session = await page.createCDPSession();
+      const detach = session.detach.bind(session);
+      const detached = Promise.withResolvers<void>();
+      const sessionDeferred = Promise.withResolvers<CDPSession>();
+      sinon
+        .stub(page, 'createCDPSession')
+        .returns(sessionDeferred.promise);
+      sinon.stub(page, 'emulateFocusedPage').resolves();
+      const detachStub = sinon.stub(session, 'detach').callsFake(async () => {
+        await detach();
+        detached.resolve();
+      });
+      const mcpPage = new McpPage(page, 1, {
+        hasNetworkBlockOrAllowlist: false,
+        locatorClass: Locator,
+      });
+
+      try {
+        let initialized = false;
+        const initPromise = mcpPage.init().then(() => {
+          initialized = true;
+        });
+
+        await clock.tickAsync(PAGE_INIT_TIMEOUT - 1);
+        assert.strictEqual(initialized, false);
+
+        await clock.tickAsync(1);
+        await initPromise;
+        assert.strictEqual(initialized, true);
+
+        mcpPage.dispose();
+        sessionDeferred.resolve(session);
+        await detached.promise;
+
+        assert.strictEqual(mcpPage.devtoolsUniverse, undefined);
+        sinon.assert.calledOnce(detachStub);
+      } finally {
+        mcpPage.dispose();
+        clock.restore();
+      }
+    });
+  });
+
+  it('keeps a DevTools universe initialized before the deadline', async () => {
+    await withBrowser(async (_browser, page) => {
+      const clock = sinon.useFakeTimers();
+      sinon.stub(page, 'emulateFocusedPage').resolves();
+      const mcpPage = new McpPage(page, 1, {
+        hasNetworkBlockOrAllowlist: false,
+        locatorClass: Locator,
+      });
+
+      try {
+        await mcpPage.init();
+
+        assert.ok(mcpPage.devtoolsUniverse);
+        assert.strictEqual(clock.now, 0);
+        assert.strictEqual(clock.countTimers(), 0);
+      } finally {
+        mcpPage.dispose();
+        clock.restore();
+      }
+    });
+  });
+
+  it('resolves when optional initialization rejects', async () => {
+    await withBrowser(async (_browser, page) => {
+      const clock = sinon.useFakeTimers();
+      sinon.stub(page, 'createCDPSession').rejects(new Error('CDP failed'));
+      sinon.stub(page, 'emulateFocusedPage').resolves();
+      const mcpPage = new McpPage(page, 1, {
+        hasNetworkBlockOrAllowlist: false,
+        locatorClass: Locator,
+      });
+
+      try {
+        await mcpPage.init();
+
+        assert.strictEqual(mcpPage.devtoolsUniverse, undefined);
+        assert.strictEqual(clock.now, 0);
+        assert.strictEqual(clock.countTimers(), 0);
+      } finally {
+        mcpPage.dispose();
+        clock.restore();
+      }
+    });
+  });
+
+  it('keeps healthy pages usable when another page times out', async () => {
+    await withBrowser(async (browser, stuckPage) => {
+      const healthyPage = await browser.newPage();
+      const clock = sinon.useFakeTimers();
+      sinon
+        .stub(stuckPage, 'createCDPSession')
+        .returns(new Promise<never>(() => {}));
+      sinon.stub(stuckPage, 'emulateFocusedPage').resolves();
+      sinon.stub(healthyPage, 'emulateFocusedPage').resolves();
+      const stuckMcpPage = new McpPage(stuckPage, 1, {
+        hasNetworkBlockOrAllowlist: false,
+        locatorClass: Locator,
+      });
+      const healthyMcpPage = new McpPage(healthyPage, 2, {
+        hasNetworkBlockOrAllowlist: false,
+        locatorClass: Locator,
+      });
+
+      try {
+        const stuckInit = stuckMcpPage.init();
+        const healthyInit = healthyMcpPage.init();
+
+        await healthyInit;
+        assert.ok(healthyMcpPage.devtoolsUniverse);
+
+        await clock.tickAsync(PAGE_INIT_TIMEOUT);
+        await stuckInit;
+
+        assert.ok(healthyMcpPage.devtoolsUniverse);
+      } finally {
+        stuckMcpPage.dispose();
+        healthyMcpPage.dispose();
+        clock.restore();
+      }
     });
   });
 });
