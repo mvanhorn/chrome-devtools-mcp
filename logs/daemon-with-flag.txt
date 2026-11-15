@@ -1,0 +1,212 @@
+2026-11-15T17:01:14.697Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:01:14.797Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:01:14.922Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:01:14.922Z mcp:log onmessage {"method":"invoke_tool","tool":"new_page","args":{"url":"http://127.0.0.1:39507/"}}
+2026-11-15T17:01:14.924Z mcp:log new_page request: {
+  "url": "http://127.0.0.1:39507/"
+}
+2026-11-15T17:01:15.148Z mcp:log new_page browser: resolved
+2026-11-15T17:01:15.309Z mcp:log Getting DevTools UI data
+2026-11-15T17:01:15.310Z mcp:log No DevTools page detected
+2026-11-15T17:01:15.410Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:01:15.411Z mcp:log onmessage {"method":"invoke_tool","tool":"list_pages","args":{}}
+2026-11-15T17:01:15.411Z mcp:log list_pages request: {}
+2026-11-15T17:01:15.411Z mcp:log list_pages browser: resolved
+2026-11-15T17:01:15.412Z mcp:log Getting DevTools UI data
+2026-11-15T17:01:15.412Z mcp:log No DevTools page detected
+2026-11-15T17:01:15.512Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:01:15.512Z mcp:log onmessage {"method":"invoke_tool","tool":"take_snapshot","args":{"pageId":1}}
+2026-11-15T17:01:15.513Z mcp:log take_snapshot request: {
+  "pageId": 1
+}
+2026-11-15T17:01:15.513Z mcp:log take_snapshot browser: resolved
+2026-11-15T17:01:15.513Z mcp:log Getting DevTools UI data
+2026-11-15T17:01:15.514Z mcp:log No DevTools page detected
+2026-11-15T17:01:15.520Z mcp:log Getting DevTools UI data
+2026-11-15T17:01:15.521Z mcp:log No DevTools page detected
+2026-11-15T17:01:15.661Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:01:15.661Z mcp:log onmessage {"method":"invoke_tool","tool":"take_screenshot","args":{"pageId":1,"filePath":"/tmp/cdm-demo/screenshots/download-page.png"}}
+2026-11-15T17:01:15.662Z mcp:log take_screenshot request: {
+  "pageId": 1,
+  "format": "png",
+  "filePath": "/tmp/cdm-demo/screenshots/download-page.png"
+}
+2026-11-15T17:01:15.662Z mcp:log take_screenshot browser: resolved
+2026-11-15T17:02:15.787Z mcp:log onmessage {"method":"stop"}
+2026-11-15T17:02:15.798Z mcp:log Getting DevTools UI data
+2026-11-15T17:02:15.811Z mcp:log No DevTools page detected
+2026-11-15T17:02:41.008Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:02:41.140Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:02:41.263Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:02:41.263Z mcp:log onmessage {"method":"invoke_tool","tool":"new_page","args":{"url":"http://127.0.0.1:46315/"}}
+2026-11-15T17:02:41.266Z mcp:log new_page request: {
+  "url": "http://127.0.0.1:46315/"
+}
+2026-11-15T17:02:41.561Z mcp:log new_page browser: resolved
+2026-11-15T17:02:41.724Z mcp:log Getting DevTools UI data
+2026-11-15T17:02:41.724Z mcp:log No DevTools page detected
+2026-11-15T17:02:41.832Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:02:41.833Z mcp:log onmessage {"method":"invoke_tool","tool":"list_pages","args":{}}
+2026-11-15T17:02:41.833Z mcp:log list_pages request: {}
+2026-11-15T17:02:41.833Z mcp:log list_pages browser: resolved
+2026-11-15T17:02:41.834Z mcp:log Getting DevTools UI data
+2026-11-15T17:02:41.835Z mcp:log No DevTools page detected
+2026-11-15T17:02:41.940Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:02:41.940Z mcp:log onmessage {"method":"invoke_tool","tool":"take_snapshot","args":{"pageId":2}}
+2026-11-15T17:02:41.941Z mcp:log take_snapshot request: {
+  "pageId": 2
+}
+2026-11-15T17:02:41.941Z mcp:log take_snapshot browser: resolved
+2026-11-15T17:02:41.942Z mcp:log Getting DevTools UI data
+2026-11-15T17:02:41.942Z mcp:log No DevTools page detected
+2026-11-15T17:02:41.948Z mcp:log Getting DevTools UI data
+2026-11-15T17:02:41.949Z mcp:log No DevTools page detected
+2026-11-15T17:02:42.094Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:02:42.094Z mcp:log onmessage {"method":"invoke_tool","tool":"take_screenshot","args":{"pageId":2,"filePath":"/tmp/cdm-demo/screenshots/download-page.png"}}
+2026-11-15T17:02:42.095Z mcp:log take_screenshot request: {
+  "pageId": 2,
+  "format": "png",
+  "filePath": "/tmp/cdm-demo/screenshots/download-page.png"
+}
+2026-11-15T17:02:42.095Z mcp:log take_screenshot browser: resolved
+2026-11-15T17:02:42.178Z mcp:log Getting DevTools UI data
+2026-11-15T17:02:42.179Z mcp:log No DevTools page detected
+2026-11-15T17:02:42.287Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:02:42.287Z mcp:log onmessage {"method":"invoke_tool","tool":"click","args":{"pageId":2,"uid":"1000"}}
+2026-11-15T17:02:42.288Z mcp:log click request: {
+  "pageId": 2,
+  "uid": "1000"
+}
+2026-11-15T17:02:42.288Z mcp:log click browser: resolved
+2026-11-15T17:02:42.289Z mcp:log Getting DevTools UI data
+2026-11-15T17:02:42.290Z mcp:log No DevTools page detected
+2026-11-15T17:02:42.434Z mcp:log onmessage {"method":"stop"}
+2026-11-15T17:03:09.504Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:09.595Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:09.695Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:09.695Z mcp:log onmessage {"method":"invoke_tool","tool":"new_page","args":{"url":"http://127.0.0.1:44227/"}}
+2026-11-15T17:03:09.697Z mcp:log new_page request: {
+  "url": "http://127.0.0.1:44227/"
+}
+2026-11-15T17:03:09.887Z mcp:log new_page browser: resolved
+2026-11-15T17:03:10.032Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:10.033Z mcp:log No DevTools page detected
+2026-11-15T17:03:10.127Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:10.127Z mcp:log onmessage {"method":"invoke_tool","tool":"list_pages","args":{}}
+2026-11-15T17:03:10.128Z mcp:log list_pages request: {}
+2026-11-15T17:03:10.128Z mcp:log list_pages browser: resolved
+2026-11-15T17:03:10.128Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:10.128Z mcp:log No DevTools page detected
+2026-11-15T17:03:10.225Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:10.225Z mcp:log onmessage {"method":"invoke_tool","tool":"take_snapshot","args":{"pageId":2}}
+2026-11-15T17:03:10.226Z mcp:log take_snapshot request: {
+  "pageId": 2
+}
+2026-11-15T17:03:10.226Z mcp:log take_snapshot browser: resolved
+2026-11-15T17:03:10.226Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:10.226Z mcp:log No DevTools page detected
+2026-11-15T17:03:10.232Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:10.232Z mcp:log No DevTools page detected
+2026-11-15T17:03:10.335Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:10.335Z mcp:log onmessage {"method":"invoke_tool","tool":"take_screenshot","args":{"pageId":2,"filePath":"/tmp/cdm-demo/screenshots/download-page.png"}}
+2026-11-15T17:03:10.336Z mcp:log take_screenshot request: {
+  "pageId": 2,
+  "format": "png",
+  "filePath": "/tmp/cdm-demo/screenshots/download-page.png"
+}
+2026-11-15T17:03:10.336Z mcp:log take_screenshot browser: resolved
+2026-11-15T17:03:10.407Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:10.407Z mcp:log No DevTools page detected
+2026-11-15T17:03:10.501Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:10.501Z mcp:log onmessage {"method":"invoke_tool","tool":"click","args":{"pageId":2,"uid":"1_5"}}
+2026-11-15T17:03:10.502Z mcp:log click request: {
+  "pageId": 2,
+  "uid": "1_5"
+}
+2026-11-15T17:03:10.502Z mcp:log click browser: resolved
+2026-11-15T17:03:13.667Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:13.667Z mcp:log No DevTools page detected
+2026-11-15T17:03:13.769Z mcp:log onmessage {"method":"stop"}
+2026-11-15T17:03:31.775Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:31.881Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:31.977Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:31.977Z mcp:log onmessage {"method":"invoke_tool","tool":"new_page","args":{"url":"http://127.0.0.1:46187/"}}
+2026-11-15T17:03:31.979Z mcp:log new_page request: {
+  "url": "http://127.0.0.1:46187/"
+}
+2026-11-15T17:03:32.177Z mcp:log new_page browser: resolved
+2026-11-15T17:03:32.327Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:32.327Z mcp:log No DevTools page detected
+2026-11-15T17:03:32.433Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:32.433Z mcp:log onmessage {"method":"invoke_tool","tool":"list_pages","args":{}}
+2026-11-15T17:03:32.433Z mcp:log list_pages request: {}
+2026-11-15T17:03:32.433Z mcp:log list_pages browser: resolved
+2026-11-15T17:03:32.434Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:32.434Z mcp:log No DevTools page detected
+2026-11-15T17:03:32.538Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:32.538Z mcp:log onmessage {"method":"invoke_tool","tool":"take_snapshot","args":{"pageId":2}}
+2026-11-15T17:03:32.539Z mcp:log take_snapshot request: {
+  "pageId": 2
+}
+2026-11-15T17:03:32.539Z mcp:log take_snapshot browser: resolved
+2026-11-15T17:03:32.540Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:32.540Z mcp:log No DevTools page detected
+2026-11-15T17:03:32.545Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:32.546Z mcp:log No DevTools page detected
+2026-11-15T17:03:32.638Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:32.639Z mcp:log onmessage {"method":"invoke_tool","tool":"take_screenshot","args":{"pageId":2,"filePath":"/tmp/cdm-demo/screenshots/download-page.png"}}
+2026-11-15T17:03:32.639Z mcp:log take_screenshot request: {
+  "pageId": 2,
+  "format": "png",
+  "filePath": "/tmp/cdm-demo/screenshots/download-page.png"
+}
+2026-11-15T17:03:32.639Z mcp:log take_screenshot browser: resolved
+2026-11-15T17:03:32.697Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:32.697Z mcp:log No DevTools page detected
+2026-11-15T17:03:32.789Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:32.789Z mcp:log onmessage {"method":"invoke_tool","tool":"click","args":{"pageId":2,"uid":"1_5"}}
+2026-11-15T17:03:32.790Z mcp:log click request: {
+  "pageId": 2,
+  "uid": "1_5"
+}
+2026-11-15T17:03:32.790Z mcp:log click browser: resolved
+2026-11-15T17:03:35.952Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:35.952Z mcp:log No DevTools page detected
+2026-11-15T17:03:36.052Z mcp:log onmessage {"method":"stop"}
+2026-11-15T17:25:25.692Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:25:25.803Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:25:25.908Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:25:25.908Z mcp:log onmessage {"method":"invoke_tool","tool":"new_page","args":{"url":"http://127.0.0.1:34559/"}}
+2026-11-15T17:25:25.910Z mcp:log new_page request: {
+  "url": "http://127.0.0.1:34559/"
+}
+[100948:100948:1115/172526.092754:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+2026-11-15T17:25:26.129Z mcp:log new_page browser: resolved
+2026-11-15T17:25:26.287Z mcp:log Getting DevTools UI data
+2026-11-15T17:25:26.288Z mcp:log No DevTools page detected
+2026-11-15T17:25:26.380Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:25:26.381Z mcp:log onmessage {"method":"invoke_tool","tool":"list_pages","args":{}}
+2026-11-15T17:25:26.381Z mcp:log list_pages request: {}
+2026-11-15T17:25:26.381Z mcp:log list_pages browser: resolved
+2026-11-15T17:25:26.381Z mcp:log Getting DevTools UI data
+2026-11-15T17:25:26.382Z mcp:log No DevTools page detected
+2026-11-15T17:25:26.472Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:25:26.472Z mcp:log onmessage {"method":"invoke_tool","tool":"take_snapshot","args":{"pageId":2}}
+2026-11-15T17:25:26.473Z mcp:log take_snapshot request: {
+  "pageId": 2
+}
+2026-11-15T17:25:26.473Z mcp:log take_snapshot browser: resolved
+2026-11-15T17:25:26.473Z mcp:log Getting DevTools UI data
+2026-11-15T17:25:26.474Z mcp:log No DevTools page detected
+2026-11-15T17:25:26.479Z mcp:log Getting DevTools UI data
+2026-11-15T17:25:26.479Z mcp:log No DevTools page detected
+2026-11-15T17:25:26.572Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:25:26.573Z mcp:log onmessage {"method":"invoke_tool","tool":"click","args":{"pageId":2,"uid":"1_5"}}
+2026-11-15T17:25:26.573Z mcp:log click request: {
+  "pageId": 2,
+  "uid": "1_5"
+}
+2026-11-15T17:25:26.573Z mcp:log click browser: resolved
+2026-11-15T17:25:29.733Z mcp:log Getting DevTools UI data
+2026-11-15T17:25:29.733Z mcp:log No DevTools page detected
+2026-11-15T17:25:29.834Z mcp:log onmessage {"method":"stop"}

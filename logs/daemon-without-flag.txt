@@ -1,0 +1,156 @@
+2026-11-15T17:02:43.080Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:02:43.230Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:02:43.327Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:02:43.327Z mcp:log onmessage {"method":"invoke_tool","tool":"new_page","args":{"url":"http://127.0.0.1:46315/"}}
+2026-11-15T17:02:43.330Z mcp:log new_page request: {
+  "url": "http://127.0.0.1:46315/"
+}
+[74257:74257:1115/170243.525318:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[74257:74280:1115/170243.525471:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[74257:74257:1115/170243.530748:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+2026-11-15T17:02:43.555Z mcp:log new_page browser: resolved
+2026-11-15T17:02:43.699Z mcp:log Getting DevTools UI data
+2026-11-15T17:02:43.699Z mcp:log No DevTools page detected
+2026-11-15T17:02:43.795Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:02:43.795Z mcp:log onmessage {"method":"invoke_tool","tool":"list_pages","args":{}}
+2026-11-15T17:02:43.795Z mcp:log list_pages request: {}
+2026-11-15T17:02:43.795Z mcp:log list_pages browser: resolved
+2026-11-15T17:02:43.795Z mcp:log Getting DevTools UI data
+2026-11-15T17:02:43.796Z mcp:log No DevTools page detected
+2026-11-15T17:02:43.893Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:02:43.894Z mcp:log onmessage {"method":"invoke_tool","tool":"take_snapshot","args":{"pageId":2}}
+2026-11-15T17:02:43.894Z mcp:log take_snapshot request: {
+  "pageId": 2
+}
+2026-11-15T17:02:43.894Z mcp:log take_snapshot browser: resolved
+2026-11-15T17:02:43.895Z mcp:log Getting DevTools UI data
+2026-11-15T17:02:43.895Z mcp:log No DevTools page detected
+2026-11-15T17:02:43.901Z mcp:log Getting DevTools UI data
+2026-11-15T17:02:43.901Z mcp:log No DevTools page detected
+2026-11-15T17:02:44.009Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:02:44.010Z mcp:log onmessage {"method":"invoke_tool","tool":"click","args":{"pageId":2,"uid":"1_5"}}
+2026-11-15T17:02:44.010Z mcp:log click request: {
+  "pageId": 2,
+  "uid": "1_5"
+}
+2026-11-15T17:02:44.011Z mcp:log click browser: resolved
+2026-11-15T17:02:47.181Z mcp:log Getting DevTools UI data
+2026-11-15T17:02:47.182Z mcp:log No DevTools page detected
+2026-11-15T17:02:47.279Z mcp:log onmessage {"method":"stop"}
+2026-11-15T17:03:14.412Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:14.541Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:14.633Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:14.633Z mcp:log onmessage {"method":"invoke_tool","tool":"new_page","args":{"url":"http://127.0.0.1:44227/"}}
+2026-11-15T17:03:14.635Z mcp:log new_page request: {
+  "url": "http://127.0.0.1:44227/"
+}
+[74919:74919:1115/170314.798519:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[74919:74941:1115/170314.798562:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[74919:74919:1115/170314.803434:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+2026-11-15T17:03:14.822Z mcp:log new_page browser: resolved
+2026-11-15T17:03:14.971Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:14.972Z mcp:log No DevTools page detected
+2026-11-15T17:03:15.064Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:15.064Z mcp:log onmessage {"method":"invoke_tool","tool":"list_pages","args":{}}
+2026-11-15T17:03:15.064Z mcp:log list_pages request: {}
+2026-11-15T17:03:15.065Z mcp:log list_pages browser: resolved
+2026-11-15T17:03:15.065Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:15.065Z mcp:log No DevTools page detected
+2026-11-15T17:03:15.164Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:15.164Z mcp:log onmessage {"method":"invoke_tool","tool":"take_snapshot","args":{"pageId":2}}
+2026-11-15T17:03:15.165Z mcp:log take_snapshot request: {
+  "pageId": 2
+}
+2026-11-15T17:03:15.165Z mcp:log take_snapshot browser: resolved
+2026-11-15T17:03:15.165Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:15.166Z mcp:log No DevTools page detected
+2026-11-15T17:03:15.171Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:15.172Z mcp:log No DevTools page detected
+2026-11-15T17:03:15.267Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:15.267Z mcp:log onmessage {"method":"invoke_tool","tool":"click","args":{"pageId":2,"uid":"1_5"}}
+2026-11-15T17:03:15.268Z mcp:log click request: {
+  "pageId": 2,
+  "uid": "1_5"
+}
+2026-11-15T17:03:15.268Z mcp:log click browser: resolved
+2026-11-15T17:03:18.434Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:18.434Z mcp:log No DevTools page detected
+2026-11-15T17:03:18.526Z mcp:log onmessage {"method":"stop"}
+2026-11-15T17:03:36.664Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:36.778Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:36.866Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:36.866Z mcp:log onmessage {"method":"invoke_tool","tool":"new_page","args":{"url":"http://127.0.0.1:46187/"}}
+2026-11-15T17:03:36.869Z mcp:log new_page request: {
+  "url": "http://127.0.0.1:46187/"
+}
+[75580:75580:1115/170337.022586:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[75580:75602:1115/170337.022641:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[75580:75580:1115/170337.027184:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+2026-11-15T17:03:37.050Z mcp:log new_page browser: resolved
+2026-11-15T17:03:37.193Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:37.194Z mcp:log No DevTools page detected
+2026-11-15T17:03:37.282Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:37.282Z mcp:log onmessage {"method":"invoke_tool","tool":"list_pages","args":{}}
+2026-11-15T17:03:37.282Z mcp:log list_pages request: {}
+2026-11-15T17:03:37.282Z mcp:log list_pages browser: resolved
+2026-11-15T17:03:37.282Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:37.283Z mcp:log No DevTools page detected
+2026-11-15T17:03:37.374Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:37.375Z mcp:log onmessage {"method":"invoke_tool","tool":"take_snapshot","args":{"pageId":2}}
+2026-11-15T17:03:37.375Z mcp:log take_snapshot request: {
+  "pageId": 2
+}
+2026-11-15T17:03:37.375Z mcp:log take_snapshot browser: resolved
+2026-11-15T17:03:37.376Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:37.376Z mcp:log No DevTools page detected
+2026-11-15T17:03:37.381Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:37.382Z mcp:log No DevTools page detected
+2026-11-15T17:03:37.477Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:03:37.477Z mcp:log onmessage {"method":"invoke_tool","tool":"click","args":{"pageId":2,"uid":"1_5"}}
+2026-11-15T17:03:37.478Z mcp:log click request: {
+  "pageId": 2,
+  "uid": "1_5"
+}
+2026-11-15T17:03:37.478Z mcp:log click browser: resolved
+2026-11-15T17:03:40.634Z mcp:log Getting DevTools UI data
+2026-11-15T17:03:40.634Z mcp:log No DevTools page detected
+2026-11-15T17:03:40.734Z mcp:log onmessage {"method":"stop"}
+2026-11-15T17:25:30.472Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:25:30.576Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:25:30.671Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:25:30.672Z mcp:log onmessage {"method":"invoke_tool","tool":"new_page","args":{"url":"http://127.0.0.1:34559/"}}
+2026-11-15T17:25:30.674Z mcp:log new_page request: {
+  "url": "http://127.0.0.1:34559/"
+}
+[101236:101236:1115/172530.854431:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[101236:101258:1115/172530.854506:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[101236:101236:1115/172530.859677:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+2026-11-15T17:25:30.881Z mcp:log new_page browser: resolved
+2026-11-15T17:25:31.035Z mcp:log Getting DevTools UI data
+2026-11-15T17:25:31.035Z mcp:log No DevTools page detected
+2026-11-15T17:25:31.146Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:25:31.147Z mcp:log onmessage {"method":"invoke_tool","tool":"list_pages","args":{}}
+2026-11-15T17:25:31.147Z mcp:log list_pages request: {}
+2026-11-15T17:25:31.147Z mcp:log list_pages browser: resolved
+2026-11-15T17:25:31.147Z mcp:log Getting DevTools UI data
+2026-11-15T17:25:31.148Z mcp:log No DevTools page detected
+2026-11-15T17:25:31.254Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:25:31.254Z mcp:log onmessage {"method":"invoke_tool","tool":"take_snapshot","args":{"pageId":2}}
+2026-11-15T17:25:31.255Z mcp:log take_snapshot request: {
+  "pageId": 2
+}
+2026-11-15T17:25:31.255Z mcp:log take_snapshot browser: resolved
+2026-11-15T17:25:31.255Z mcp:log Getting DevTools UI data
+2026-11-15T17:25:31.256Z mcp:log No DevTools page detected
+2026-11-15T17:25:31.261Z mcp:log Getting DevTools UI data
+2026-11-15T17:25:31.262Z mcp:log No DevTools page detected
+2026-11-15T17:25:31.367Z mcp:log onmessage {"method":"status"}
+2026-11-15T17:25:31.367Z mcp:log onmessage {"method":"invoke_tool","tool":"click","args":{"pageId":2,"uid":"1_5"}}
+2026-11-15T17:25:31.367Z mcp:log click request: {
+  "pageId": 2,
+  "uid": "1_5"
+}
+2026-11-15T17:25:31.367Z mcp:log click browser: resolved
+2026-11-15T17:25:34.531Z mcp:log Getting DevTools UI data
+2026-11-15T17:25:34.532Z mcp:log No DevTools page detected
+2026-11-15T17:25:34.628Z mcp:log onmessage {"method":"stop"}

@@ -1,0 +1,7 @@
+
+> chrome-devtools-mcp@1.13.0 typecheck
+> node scripts/ninja.ts
+
+ninja: Entering directory `out/Default'
+ninja: no work to do.
+EXIT:0

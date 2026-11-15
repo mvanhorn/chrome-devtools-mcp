@@ -1,0 +1,157 @@
+# chrome-devtools-mcp --downloadsDir demo
+# captured 2026-11-15T17:25:25Z
+# node v24.22.3  cli node out/Default/gen/src/bin/chrome-devtools.js
+
+$ node /tmp/cdm-demo/serve.mjs &
+exit: 0
+http_pid=100868
+page_url=http://127.0.0.1:34559/
+
+=== 1. Start with --downloadsDir (creates the directory if missing) ===
+
+$ node out/Default/gen/src/bin/chrome-devtools.js --sessionId c8ae1115-0001-4000-8000-00000000d1d1 start --headless --isolated --downloadsDir /tmp/cdm-downloads --logFile /tmp/cdm-demo/logs/daemon-with-flag.txt
+turning off usage statistics. process.env['CI'] || process.env['CHROME_DEVTOOLS_MCP_NO_USAGE_STATISTICS'] is set.
+chrome-devtools-mcp exposes content of the browser instance to the MCP clients allowing them to inspect,
+debug, and modify any data in the browser or DevTools.
+Avoid sharing sensitive or personal information that you do not want to share with MCP clients.
+Performance tools may send trace URLs to the Google CrUX API to fetch real-user experience data. To disable, run with --no-performance-crux.
+exit: 0
+
+$ node out/Default/gen/src/bin/chrome-devtools.js --sessionId c8ae1115-0001-4000-8000-00000000d1d1 status
+chrome-devtools-mcp daemon is running.
+pid=100901 socket=/tmp/chrome-devtools-mcp-c8ae1115-0001-4000-8000-00000000d1d1-1000/server.sock start-date=2026-11-15T17:25:25.615Z version=1.13.0
+args=["--viaCli","--headless","--isolated","--log-file=/tmp/cdm-demo/logs/daemon-with-flag.txt","--downloads-dir=/tmp/cdm-downloads"]
+exit: 0
+
+$ ls -la /tmp/cdm-downloads
+total 36
+drwxr-xr-x    2 ubuntu ubuntu  4096 Nov 15 17:25 .
+drwxrwxrwt. 337 root   root   28672 Nov 15 17:25 ..
+exit: 0
+
+=== 2. Open the local download page, snapshot, click ===
+
+$ node out/Default/gen/src/bin/chrome-devtools.js --sessionId c8ae1115-0001-4000-8000-00000000d1d1 new_page http://127.0.0.1:34559/
+## Pages
+1: about:blank
+2: Downloads demo (http://127.0.0.1:34559/) [selected]
+exit: 0
+
+$ node out/Default/gen/src/bin/chrome-devtools.js --sessionId c8ae1115-0001-4000-8000-00000000d1d1 list_pages
+## Pages
+1: about:blank
+2: Downloads demo (http://127.0.0.1:34559/) [selected]
+exit: 0
+selected_page_id=2
+
+$ node out/Default/gen/src/bin/chrome-devtools.js --sessionId c8ae1115-0001-4000-8000-00000000d1d1 take_snapshot 2
+## Latest page snapshot
+uid=1_0 RootWebArea "Downloads demo" url="http://127.0.0.1:34559/"
+  uid=1_1 heading "Downloads demo" level="1"
+  uid=1_2 "Click the link to download "
+  uid=1_3 "file.txt"
+  uid=1_4 "."
+  uid=1_5 link "Download file.txt" url="http://127.0.0.1:34559/file.txt"
+
+exit: 0
+parsed_uid=1_5
+
+$ node out/Default/gen/src/bin/chrome-devtools.js --sessionId c8ae1115-0001-4000-8000-00000000d1d1 click 2 1_5
+Successfully clicked on the element
+Download completed: file.txt -> /tmp/cdm-downloads/file.txt (40 bytes)
+exit: 0
+
+=== 3. File landed in --downloadsDir ===
+
+$ ls -l /tmp/cdm-downloads
+total 4
+-rw-r--r-- 1 ubuntu ubuntu 40 Nov 15 17:25 file.txt
+exit: 0
+
+$ sha256sum /tmp/cdm-downloads/file.txt
+0c4feb894e4d201a644af77bf672b1d4954ee9ab994ee68ad863ffe1c9b1d5bc  /tmp/cdm-downloads/file.txt
+exit: 0
+
+$ cat /tmp/cdm-downloads/file.txt
+hello download from chrome-devtools-mcp
+exit: 0
+
+$ node out/Default/gen/src/bin/chrome-devtools.js --sessionId c8ae1115-0001-4000-8000-00000000d1d1 stop
+exit: 0
+
+=== 4. Same click with --downloadsDir unset: no file in that directory ===
+
+$ rm -f /tmp/cdm-downloads/file.txt
+exit: 0
+
+$ ls -la /tmp/cdm-downloads
+total 36
+drwxr-xr-x    2 ubuntu ubuntu  4096 Nov 15 17:25 .
+drwxrwxrwt. 337 root   root   28672 Nov 15 17:25 ..
+exit: 0
+
+$ node out/Default/gen/src/bin/chrome-devtools.js --sessionId c8ae1115-0002-4000-8000-00000000d1d1 start --headless --isolated --logFile /tmp/cdm-demo/logs/daemon-without-flag.txt
+turning off usage statistics. process.env['CI'] || process.env['CHROME_DEVTOOLS_MCP_NO_USAGE_STATISTICS'] is set.
+chrome-devtools-mcp exposes content of the browser instance to the MCP clients allowing them to inspect,
+debug, and modify any data in the browser or DevTools.
+Avoid sharing sensitive or personal information that you do not want to share with MCP clients.
+Performance tools may send trace URLs to the Google CrUX API to fetch real-user experience data. To disable, run with --no-performance-crux.
+exit: 0
+
+$ node out/Default/gen/src/bin/chrome-devtools.js --sessionId c8ae1115-0002-4000-8000-00000000d1d1 status
+chrome-devtools-mcp daemon is running.
+pid=101199 socket=/tmp/chrome-devtools-mcp-c8ae1115-0002-4000-8000-00000000d1d1-1000/server.sock start-date=2026-11-15T17:25:30.384Z version=1.13.0
+args=["--viaCli","--headless","--isolated","--log-file=/tmp/cdm-demo/logs/daemon-without-flag.txt"]
+exit: 0
+
+$ node out/Default/gen/src/bin/chrome-devtools.js --sessionId c8ae1115-0002-4000-8000-00000000d1d1 new_page http://127.0.0.1:34559/
+## Pages
+1: about:blank
+2: Downloads demo (http://127.0.0.1:34559/) [selected]
+exit: 0
+
+$ node out/Default/gen/src/bin/chrome-devtools.js --sessionId c8ae1115-0002-4000-8000-00000000d1d1 list_pages
+## Pages
+1: about:blank
+2: Downloads demo (http://127.0.0.1:34559/) [selected]
+exit: 0
+selected_page_id_unset=2
+
+$ node out/Default/gen/src/bin/chrome-devtools.js --sessionId c8ae1115-0002-4000-8000-00000000d1d1 take_snapshot 2
+## Latest page snapshot
+uid=1_0 RootWebArea "Downloads demo" url="http://127.0.0.1:34559/"
+  uid=1_1 heading "Downloads demo" level="1"
+  uid=1_2 "Click the link to download "
+  uid=1_3 "file.txt"
+  uid=1_4 "."
+  uid=1_5 link "Download file.txt" url="http://127.0.0.1:34559/file.txt"
+
+exit: 0
+parsed_uid_unset=1_5
+
+$ node out/Default/gen/src/bin/chrome-devtools.js --sessionId c8ae1115-0002-4000-8000-00000000d1d1 click 2 1_5
+Successfully clicked on the element
+exit: 0
+
+$ ls -la /tmp/cdm-downloads
+total 36
+drwxr-xr-x    2 ubuntu ubuntu  4096 Nov 15 17:25 .
+drwxrwxrwt. 339 root   root   28672 Nov 15 17:25 ..
+exit: 0
+confirmed: /tmp/cdm-downloads/file.txt is absent without --downloadsDir
+
+$ node out/Default/gen/src/bin/chrome-devtools.js --sessionId c8ae1115-0002-4000-8000-00000000d1d1 stop
+exit: 0
+
+=== 5. --downloadsDir pointing at a regular file is refused ===
+
+$ ls -l /tmp/cdm-not-a-dir
+-rw-r--r-- 1 ubuntu ubuntu 16 Nov 15 17:25 /tmp/cdm-not-a-dir
+exit: 0
+
+$ node out/Default/gen/src/bin/chrome-devtools.js --sessionId c8ae1115-0001-4000-8000-00000000d1d1 start --headless --isolated --downloadsDir /tmp/cdm-not-a-dir
+turning off usage statistics. process.env['CI'] || process.env['CHROME_DEVTOOLS_MCP_NO_USAGE_STATISTICS'] is set.
+Invalid downloadsDir /tmp/cdm-not-a-dir. Expected a directory, found a file.
+exit: 1
+
+=== capture complete ===
