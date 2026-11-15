@@ -1,0 +1,8 @@
+$ npm run check-format
+
+> chrome-devtools-mcp@1.13.0 check-format
+> eslint --cache . && prettier --check --cache .
+
+Checking formatting...
+All matched files use Prettier code style!
+exit: 0

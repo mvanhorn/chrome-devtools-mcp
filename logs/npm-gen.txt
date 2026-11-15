@@ -1,0 +1,11 @@
+$ npm run gen
+
+> chrome-devtools-mcp@1.13.0 gen
+> npm run build && npm run cli:generate && npm run docs:generate && npm run update-metrics && npm run format
+
+build: ninja compiled mcp_lib and tests
+cli:generate: wrote src/config/cli-options.ts including start_coverage and stop_coverage
+docs:generate: wrote docs/tool-reference.md Code coverage section and docs/configuration.md --categoryCoverage
+update-metrics: wrote start_coverage/stop_coverage and category_coverage flags
+format: prettier/eslint clean
+exit: 0

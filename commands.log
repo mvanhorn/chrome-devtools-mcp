@@ -1,0 +1,83 @@
+$ node /workspace/out/Default/gen/src/bin/chrome-devtools.js start --headless --isolated --categoryCoverage --executablePath=/opt/google/chrome/chrome
+turning off usage statistics. process.env['CI'] || process.env['CHROME_DEVTOOLS_MCP_NO_USAGE_STATISTICS'] is set.
+chrome-devtools-mcp exposes content of the browser instance to the MCP clients allowing them to inspect,
+debug, and modify any data in the browser or DevTools.
+Avoid sharing sensitive or personal information that you do not want to share with MCP clients.
+Performance tools may send trace URLs to the Google CrUX API to fetch real-user experience data. To disable, run with --no-performance-crux.
+exit: 0
+
+$ node /workspace/out/Default/gen/src/bin/chrome-devtools.js new_page http://127.0.0.1:8765/coverage.html
+## Pages
+1: about:blank
+2: Coverage demo (http://127.0.0.1:8765/coverage.html) [selected]
+exit: 0
+
+$ node /workspace/out/Default/gen/src/bin/chrome-devtools.js list_pages
+## Pages
+1: about:blank
+2: Coverage demo (http://127.0.0.1:8765/coverage.html) [selected]
+exit: 0
+
+$ node /workspace/out/Default/gen/src/bin/chrome-devtools.js start_coverage 2 --reload true
+JavaScript and CSS coverage collection has started and the page was reloaded. Interact with the page, then call stop_coverage to get the report.
+exit: 0
+
+$ node /workspace/out/Default/gen/src/bin/chrome-devtools.js take_snapshot 2
+## Latest page snapshot
+uid=1_0 RootWebArea "Coverage demo" url="http://127.0.0.1:8765/coverage.html"
+  uid=1_1 heading "Coverage demo" level="1"
+  uid=1_2 "Hello"
+  uid=1_3 button "Go"
+exit: 0
+
+$ node /workspace/out/Default/gen/src/bin/chrome-devtools.js click 2 1_3
+Successfully clicked on the element
+exit: 0
+
+$ node /workspace/out/Default/gen/src/bin/chrome-devtools.js stop_coverage 2
+## Coverage report
+http://127.0.0.1:8765/app.css CSS total=616 used=46 unused=570 unused%=92.5
+http://127.0.0.1:8765/app.js JS total=237 used=173 unused=64 unused%=27.0
+(inline/anonymous) JS total=385 used=385 unused=0 unused%=0.0
+Totals: 3 resources, 1238 total bytes, 604 used, 634 unused (51.2% unused)
+exit: 0
+
+$ node /workspace/out/Default/gen/src/bin/chrome-devtools.js stop
+
+exit: 0
+
+----- tools/list without --categoryCoverage -----
+$ node /workspace/_list_coverage_tools.mjs
+tools/list count=33
+coverage tools: (none)
+exit: 0
+
+----- tools/list with --categoryCoverage -----
+$ node /workspace/_list_coverage_tools.mjs --categoryCoverage
+tools/list count=35
+coverage tools: start_coverage, stop_coverage
+exit: 0
+
+----- stop_coverage without start -----
+$ node /workspace/out/Default/gen/src/bin/chrome-devtools.js start --headless --isolated --categoryCoverage --executablePath=/opt/google/chrome/chrome
+turning off usage statistics. process.env['CI'] || process.env['CHROME_DEVTOOLS_MCP_NO_USAGE_STATISTICS'] is set.
+chrome-devtools-mcp exposes content of the browser instance to the MCP clients allowing them to inspect,
+debug, and modify any data in the browser or DevTools.
+Avoid sharing sensitive or personal information that you do not want to share with MCP clients.
+Performance tools may send trace URLs to the Google CrUX API to fetch real-user experience data. To disable, run with --no-performance-crux.
+exit: 0
+
+$ node /workspace/out/Default/gen/src/bin/chrome-devtools.js new_page http://127.0.0.1:8765/coverage.html
+## Pages
+1: about:blank
+2: Coverage demo (http://127.0.0.1:8765/coverage.html) [selected]
+exit: 0
+
+$ node /workspace/out/Default/gen/src/bin/chrome-devtools.js stop_coverage 2
+Error: No coverage session is running on page 2. Call start_coverage first.
+exit: 0
+
+$ node /workspace/out/Default/gen/src/bin/chrome-devtools.js stop
+
+exit: 0
+
